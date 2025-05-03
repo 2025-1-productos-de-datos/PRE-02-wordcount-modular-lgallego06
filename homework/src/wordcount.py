@@ -1,10 +1,10 @@
 # obtain a list of files in the input directory
 
-from homework.src.count_words import count_words
-from homework.src.preprocess_lines import preprocess_lines
-from homework.src.read_all_lines import read_all_lines
-from homework.src.split_in_words import split_in_words
-from homework.src.write_count_words import write_count_words
+from homework.src._internals.count_words import count_words
+from homework.src._internals.preprocess_lines import preprocess_lines
+from homework.src._internals.read_all_lines import read_all_lines
+from homework.src._internals.split_in_words import split_in_words
+from homework.src._internals.write_count_words import write_count_words
 # obtain a list of files in the input directory
 
 
