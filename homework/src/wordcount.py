@@ -1,45 +1,38 @@
 # obtain a list of files in the input directory
-import os
 
+from homework.src.count_words import count_words
+from homework.src.preprocess_lines import preprocess_lines
+from homework.src.read_all_lines import read_all_lines
+from homework.src.split_in_words import split_in_words
 from homework.src.write_count_words import write_count_words
-def read_all_lines():
-    lines=[]
-    input_file_list=os.listdir('data/input/')
-    for filename in input_file_list:
-        with open('data/input/'+filename) as f:
-            lines.extend(f.readlines())
-            all_lines = [line.strip() for line in lines]
-    return all_lines
+# obtain a list of files in the input directory
+
 
 def main():
-    # obtain a list of files in the input directory
-    files_in_input_dir=os.listdir('data/input/')
-    ##files_in_input_dir
-    ##files_in_input_dir=os.listdir('data/input/')
-    ##files_in_input_dir
-    
-    
-    # read all lines
-    #all_lines=read_all_lines()
-    #preprocess lines
-    #split in words
-    #count words
-    #write count words
-    
+
+    ## mover a la funcion "read_all_lines"
+    all_lines = read_all_lines()
+
+    ## mover a "preprocess_lines"
+    all_lines = preprocess_lines(all_lines)
+
+    ## mover "split_in_words"
+    words = split_in_words(all_lines)
+
+    ## mover a "count_words"
+    counter = count_words(words)
+
     # count the frequency of the words in the files in the input directory
-    counter={}
-    for filename in files_in_input_dir:
-        with open('data/input/'+filename) as f:
-            for l in f:
-                for w in l.split( ):
-                    w = w.lower().strip(",.!?")
-                    counter[w] = counter.get(w, 0) + 1
-                
-                
-    # create the directory output/ if it doesn't exist
+    # counter = {}
+    # for filename in input_file_list:
+    #     with open("data/input/" + filename) as f:
+    #         for l in f:
+    #             for w in l.split():
+    #                 w = w.lower().strip(",.!?")
+    #                 counter[w] = counter.get(w, 0) + 1
+
+    ##
     write_count_words(counter)
 
-
-            
 if __name__ == "__main__":
     main()
